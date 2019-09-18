@@ -1,8 +1,8 @@
 import React from "react";
 
 function Form(props) {
-  const { onNameChange, onEmailChange, onRoleChange, teamForm } = props;
-  const {name, email, role} = teamForm;
+  const { onNameChange, onEmailChange, onRoleChange, onFormSubmit, teamForm } = props;
+  const { name, email, role } = teamForm;
 
   return (
     <form>
@@ -30,7 +30,7 @@ function Form(props) {
         onChange={onRoleChange}
       ></input>
 
-      <button>Submit!</button>
+      <button onClick={onFormSubmit}>Submit!</button>
     </form>
   );
 }

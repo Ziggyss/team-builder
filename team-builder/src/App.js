@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Form from "./Form";
+import uuid from "uuid";
 
 const initialTeamList = [
   {
@@ -46,6 +46,19 @@ function App() {
     });
   };
 
+  const onFormSubmit = e => {
+    e.preventDefault();
+    const newTeamMember = {
+      id: uuid(),
+      name: teamForm.name,
+      email: teamForm.email,
+      role: teamForm.role
+    };
+    const newTeamList = teamList.concat(newTeamMember);
+    setTeamList(newTeamList);
+    setTeamForm(initialTeamForm);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -54,12 +67,15 @@ function App() {
           onEmailChange={onEmailChange}
           onRoleChange={onRoleChange}
           teamForm={teamForm}
+          onFormSubmit={onFormSubmit}
         />
-        <p key={teamList.id}>
-          Name: {teamList.name}
-          Email: {teamList.email}
-          Role: {teamList.role}
-        </p>
+        {teamList.map(teamMember => (
+          <div key={teamMember.id}>
+            <p>Name: {teamMember.name}</p>
+            <p>Email: {teamMember.email}</p>
+            <p>Role: {teamMember.role}</p>
+          </div>
+        ))}
       </header>
     </div>
   );
