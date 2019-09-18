@@ -22,6 +22,7 @@ const initialTeamForm = {
 function App() {
   const [teamList, setTeamList] = useState(initialTeamList);
   const [teamForm, setTeamForm] = useState(initialTeamForm);
+  const [memberToEdit, setMemberToEdit] = useState('');
 
   const onNameChange = e => {
     setTeamForm({
@@ -60,6 +61,15 @@ function App() {
     setTeamForm(initialTeamForm);
   };
 
+  const onEditButtonPress = (e, member) => {
+    e.preventDefault();
+    setMemberToEdit({
+      name: memberToEdit.name,
+      email: memberToEdit.email,
+      role: memberToEdit.role,
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -72,12 +82,13 @@ function App() {
           onRoleChange={onRoleChange}
           teamForm={teamForm}
           onFormSubmit={onFormSubmit}
+          onEditButtonPress={onEditButtonPress}
         />
         {teamList.map(teamMember => (
           <div key={teamMember.id}>
             <p>
               Name: {teamMember.name}
-              <button>Edit</button>
+              <button onClick={onEditButtonPress}>Edit</button>
             </p>
             <p>Email: {teamMember.email}</p>
             <p>Role: {teamMember.role}</p>

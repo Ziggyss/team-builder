@@ -6,8 +6,10 @@ function Form(props) {
     onEmailChange,
     onRoleChange,
     onFormSubmit,
-    teamForm
+    teamForm,
+    onEditButtonPress,
   } = props;
+  
   const { name, email, role } = teamForm;
 
   return (
