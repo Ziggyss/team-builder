@@ -1,7 +1,8 @@
 import React from "react";
 
 function Form() {
-  const { onNameChange, onEmailChange, onRoleChange } = props;
+  const { onNameChange, onEmailChange, onRoleChange, teamForm } = props;
+  const {name, email, role} = teamForm;
 
   return (
     <form>
@@ -33,3 +34,5 @@ function Form() {
     </form>
   );
 }
+
+export default Form;
