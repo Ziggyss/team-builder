@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Form from "./Form";
 import uuid from "uuid";
+import logo from "./logo.svg";
 
 const initialTeamList = [
   {
@@ -62,6 +63,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+
         <h1>Add To Our Team Below!</h1>
         <Form
           onNameChange={onNameChange}
@@ -72,7 +75,10 @@ function App() {
         />
         {teamList.map(teamMember => (
           <div key={teamMember.id}>
-            <p>Name: {teamMember.name}</p>
+            <p>
+              Name: {teamMember.name}
+              <button>Edit</button>
+            </p>
             <p>Email: {teamMember.email}</p>
             <p>Role: {teamMember.role}</p>
           </div>
