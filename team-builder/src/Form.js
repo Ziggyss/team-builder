@@ -1,6 +1,9 @@
 import React from "react";
 
-function Form(props) {
+
+
+
+function Form() {
   return (
     <form>
       <label htmlFor="nameInput">Name:</label>

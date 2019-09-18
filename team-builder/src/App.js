@@ -7,12 +7,44 @@ const initialTeamList = [
     name: "",
     id: "",
     email: "",
-    role: ""
+    role: "",
   }
 ];
 
+const initialTeamForm = {
+  name: "",
+  email: "",
+  role: "",
+}
+
 function App() {
   const [teamList, setTeamList] = useState(initialTeamList);
+  const [teamForm, setTeamForm] = useState(initialTeamForm);
+
+  const onNameChange = e => {
+    setTeamForm({
+      name: e.target.value,
+      email: teamForm.email,
+      role: teamForm.role,
+    });
+  };
+
+  const onEmailChange = e => {
+    setTeamForm({
+      name: teamForm.name,
+      email: e.target.value,
+      role: teamForm.role,
+    });
+  };
+
+  const onRoleChange = e => {
+    setTeamForm({
+      name: teamForm.name,
+      email: teamForm.email,
+      role: e.target.value,
+    });
+  };
+
 
   return (
     <div className="App">
@@ -23,14 +55,6 @@ function App() {
           Email: {teamList.email}
           Role: {teamList.role}
         </p>
-        {/*       <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
       </header>
     </div>
   );
