@@ -1,7 +1,13 @@
 import React from "react";
 
 function Form(props) {
-  const { onNameChange, onEmailChange, onRoleChange, onFormSubmit, teamForm } = props;
+  const {
+    onNameChange,
+    onEmailChange,
+    onRoleChange,
+    onFormSubmit,
+    teamForm
+  } = props;
   const { name, email, role } = teamForm;
 
   return (

@@ -5,10 +5,10 @@ import uuid from "uuid";
 
 const initialTeamList = [
   {
-    name: "",
-    id: "",
-    email: "",
-    role: ""
+    name: "Lisa",
+    id: "1",
+    email: "lisa-wilton@protonmail.com",
+    role: "Uncertain Developer and provider of cheer"
   }
 ];
 
@@ -62,6 +62,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Add To Our Team Below!</h1>
         <Form
           onNameChange={onNameChange}
           onEmailChange={onEmailChange}
