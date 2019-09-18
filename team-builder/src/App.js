@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Form from './Form';
+import Form from "./Form";
 
 const initialTeamList = [
   {
     name: "",
     id: "",
     email: "",
-    role: "",
+    role: ""
   }
 ];
 
 const initialTeamForm = {
   name: "",
   email: "",
-  role: "",
-}
+  role: ""
+};
 
 function App() {
   const [teamList, setTeamList] = useState(initialTeamList);
@@ -26,7 +26,7 @@ function App() {
     setTeamForm({
       name: e.target.value,
       email: teamForm.email,
-      role: teamForm.role,
+      role: teamForm.role
     });
   };
 
@@ -34,7 +34,7 @@ function App() {
     setTeamForm({
       name: teamForm.name,
       email: e.target.value,
-      role: teamForm.role,
+      role: teamForm.role
     });
   };
 
@@ -42,15 +42,19 @@ function App() {
     setTeamForm({
       name: teamForm.name,
       email: teamForm.email,
-      role: e.target.value,
+      role: e.target.value
     });
   };
-
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Form
+          onNameChange={onNameChange}
+          onEmailChange={onEmailChange}
+          onRoleChange={onRoleChange}
+          teamForm={teamForm}
+        />
         <p key={teamList.id}>
           Name: {teamList.name}
           Email: {teamList.email}
